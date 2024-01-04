@@ -45,6 +45,8 @@ def solver(a: int = None, b: int = None):
         80: "EIGHTY",
         90: "NINETY",
         1000: "THOUSAND",
+        1000000: "MILLION",
+        1000000000: "BILLION",
     }
 
     start = 1
@@ -94,6 +96,7 @@ def solver(a: int = None, b: int = None):
             j -= 1
 
         count += len(string)
+        print(string)
 
     return count
 
