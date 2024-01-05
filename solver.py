@@ -67,22 +67,24 @@ def solver(a: int = None, b: int = None):
         while j >= 0:
             num_int = int(num_str[: j + 1])
 
+            units_place = length - j
+
             remainder = num_int % 10
 
-            if string and (length - j) == 3:
+            if string and units_place == 3:
                 string = "AND" + string
 
-            if (length - j) % 3 == 0 and remainder:
+            if units_place % 3 == 0 and remainder:
                 string = "HUNDRED" + string
 
             if (
                 (remainder or num_str[j - 1])
-                and 10 ** (length - (j + 1)) in words
+                and 10 ** (units_place - 1) in words
                 and j < length - 3
             ):
-                string = words[10 ** (length - (j + 1))] + string
+                string = words[10 ** (units_place - 1)] + string
 
-            if (length - (j + 1)) % 3 == 0:
+            if (units_place - 1) % 3 == 0:
                 remainder = num_int % 100
                 if remainder < 21:
                     string = words[remainder] + string
@@ -100,6 +102,7 @@ def solver(a: int = None, b: int = None):
             j -= 1
 
         count += len(string)
+        print(string)
 
     return count
 
