@@ -102,7 +102,6 @@ def solver(a: int = None, b: int = None):
             j -= 1
 
         count += len(string)
-        print(string)
 
     return count
 
