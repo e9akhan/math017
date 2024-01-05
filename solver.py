@@ -75,7 +75,11 @@ def solver(a: int = None, b: int = None):
             if (length - j) % 3 == 0 and remainder:
                 string = "HUNDRED" + string
 
-            if remainder and 10 ** (length - (j + 1)) in words and j < length - 3:
+            if (
+                (remainder or num_str[j - 1])
+                and 10 ** (length - (j + 1)) in words
+                and j < length - 3
+            ):
                 string = words[10 ** (length - (j + 1))] + string
 
             if (length - (j + 1)) % 3 == 0:
